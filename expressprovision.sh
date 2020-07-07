@@ -2,12 +2,10 @@
 echo "AUTOMATED SCRIPT RUNNING, USER PROMPTS ARE PRESENT"
 sudo passwd root
 
-su
+sudo apt-get update -y
 
-apt-get update -y
+sudo apt-get upgrade -y
 
-apt-get upgrade -y
+sudo nano /etc/ssh/sshd_config
 
-nano /etc/ssh/sshd_config
-
-service ssh restart
+sudo service ssh restart
