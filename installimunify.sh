@@ -1,3 +1,4 @@
+#!/bin/bash
 ## Just some copy and pasted fun
 
 echo "removing CXS from system"
