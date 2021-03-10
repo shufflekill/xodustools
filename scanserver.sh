@@ -1,0 +1,1 @@
+/usr/sbin/cxs --allusers --nobayes --clamdsock /var/clamd --dbreport --defapache nobody --doptions Mv --exploitscan --nofallback --filemax 10000 --noforce --html --mail domain.name.here --options mMOfuSGchednZRrD --qoptions Mv --report /var/log/cxsreports/cxs.scan --sizemax 1000000 --smtp --ssl --summary --sversionscan --timemax 30 --nounofficial --virusscan --voptions fuh --www
