@@ -1,11 +1,13 @@
-#!/bin/sh
+#!/bin/bash
 ## R1Soft Dedicated Server Provisioning Bash Script
 ## Author: Dawood Ahmad
 
 # Installing Prerequisites
 echo "Installing Prerequisites..."
-yum -y install bind-utils perl-libwww-perl perl-LWP-Protocol-https wget telnet unzip zip vim net-tools screen nmap rsync policycoreutils-python pciutils mutt
+yum -y install bind-utils perl-libwww-perl perl-LWP-Protocol-https wget telnet unzip zip vim net-tools screen nmap rsync policycoreutils-python pciutils mutt curl dos2unix
 
+
+dos2unix r1softdedi.sh
 # Adding to Puppet
 echo "Adding to Puppet..."
 echo "Enter the SAU Order ID In Caps (e.g SAU-1337X-OR):"
@@ -72,19 +74,18 @@ sed -i "/ssl-keystore=*/c\ssl-keystore=/usr/sbin/r1soft/conf/customer.servercont
 sed -i "/ssl-redirect=*/c\ssl-redirect=true" /usr/sbin/r1soft/conf/web.properties
 
 # Console Communication Options
-echo "Changing Console Communication Options..."
-sed -i "/external-host-address=*/c\external-host-address=$orderid.customer.servercontrol.com.au" /usr/sbin/r1soft/conf/web.properties
-external-host-address=sau-4cddf-or.customer.servercontrol.com.au
+#echo "Changing Console Communication Options..."
+#sed -i "/external-host-address=*/c\external-host-address=$orderid.customer.servercontrol.com.au" /usr/sbin/r1soft/conf/web.properties
 
 # Change Task Scheduler Options
-sed -i "/max-running-verification-tasks=*/c\max-running-verification-tasks=2" /usr/sbin/r1soft/conf/web.properties
-sed -i "/max-running-restore-tasks=*/c\max-running-restore-tasks=3" /usr/sbin/r1soft/conf/web.properties
-sed -i "/max-running-replication-tasks=*/c\max-running-replication-tasks=2" /usr/sbin/r1soft/conf/web.properties
-sed -i "/max-running-tasks=*/c\max-running-tasks=3" /usr/sbin/r1soft/conf/web.properties
-sed -i "/max-running-lta-tasks=*/c\max-running-lta-tasks=2" /usr/sbin/r1soft/conf/web.properties
-sed -i "/max-running-policy-tasks=*/c\max-running-policy-tasks=3" /usr/sbin/r1soft/conf/web.properties
-sed -i "/allow-non-super-user-concurrent-restores=*/c\allow-non-super-user-concurrent-restores=true" /usr/sbin/r1soft/conf/web.properties
-sed -i "/allow-control-panel-user-concurrent-restores=*/c\allow-control-panel-user-concurrent-restores=true" /usr/sbin/r1soft/conf/web.properties
+#sed -i "/max-running-verification-tasks=*/c\max-running-verification-tasks=2" /usr/sbin/r1soft/conf/web.properties
+#sed -i "/max-running-restore-tasks=*/c\max-running-restore-tasks=3" /usr/sbin/r1soft/conf/web.properties
+#sed -i "/max-running-replication-tasks=*/c\max-running-replication-tasks=2" /usr/sbin/r1soft/conf/web.properties
+#sed -i "/max-running-tasks=*/c\max-running-tasks=3" /usr/sbin/r1soft/conf/web.properties
+#sed -i "/max-running-lta-tasks=*/c\max-running-lta-tasks=2" /usr/sbin/r1soft/conf/web.properties
+#sed -i "/max-running-policy-tasks=*/c\max-running-policy-tasks=3" /usr/sbin/r1soft/conf/web.properties
+#sed -i "/allow-non-super-user-concurrent-restores=*/c\allow-non-super-user-concurrent-restores=true" /usr/sbin/r1soft/conf/web.properties
+#sed -i "/allow-control-panel-user-concurrent-restores=*/c\allow-control-panel-user-concurrent-restores=true" /usr/sbin/r1soft/conf/web.properties
 
 
 
